@@ -21,3 +21,19 @@ docker ps -a
 __Remove all running images and containers
 docker system prune -a
 
+__Remove image
+docker image rm tea-factory-image
+
+__Remove container
+docker container rm  tea-container
+
+__Create container using image with Expose PORT
+docker run --name tea-container -p 3005:3000 tea-factory-image
+(3000: exposed port from container)
+(3005: Opening port from local pc browser)
+
+__Stop the container
+docker stop tea-container
+
+__Run container with volumes, Expose ports
+docker run --name tea-container -p 3005:3000 --rm -v /app/node_modules -v ${PWD}:/app -e CHOKIDAR_USEPOLLING=true tea-factory-image
