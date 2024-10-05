@@ -1,0 +1,11 @@
+(1)__Create docker volume
+docker volume create my_volume
+
+(2)__Run docker container with a volume
+docker run -d --name my_container -v my_volume:/app/data my_image
+
+(3)__List all docker volumes
+docker volume ls
+
+(4)__Inspect docker volumes
+docker volume inspect my_volume
