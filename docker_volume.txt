@@ -9,3 +9,8 @@ docker volume ls
 
 (4)__Inspect docker volumes
 docker volume inspect my_volume
+
+
+
+====================================
+5b60ab7d77ce44fe8d9c323e6bd00c69    - genkins admin pwd

@@ -37,3 +37,4 @@ docker stop tea-container
 
 __Run container with volumes, Expose ports
 docker run --name tea-container -p 3005:3000 --rm -v /app/node_modules -v ${PWD}:/app -e CHOKIDAR_USEPOLLING=true tea-factory-image
+docker run --name tea-container -p 3005:3000 --rm -v /app/node_modules -v H:/Docker/frontend:/app -e CHOKIDAR_USEPOLLING=true tea-factory-image
