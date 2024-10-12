@@ -9,14 +9,14 @@ pipeline {
 
         stage("Test"){
             steps{
-                sh 'sudo npm istall'
-                sh 'npm test'
+                bat 'sudo npm istall'
+                bat 'npm test'
             }
         }
 
         stage("Build"){
             steps{
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
     }
