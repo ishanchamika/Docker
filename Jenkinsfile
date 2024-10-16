@@ -1,23 +1,37 @@
 pipeline {
-    agent any
-    stages{
-        stage("checkout"){
-            steps{
-                checkout scm
+    agent any 
+    
+    stages { 
+        stage('SCM Checkout') {
+            steps {
+                retry(3) {
+                    git branch: 'main', url: 'https://github.com/ishanchamika/Docker'
+                }
             }
         }
-
-        stage("Test"){
-            steps{
-                bat 'sudo npm istall'
-                bat 'npm test'
+        stage('Build Docker Image') {
+            steps {  
+                bat 'docker build -t ishanchamika
+/react-app:%BUILD_NUMBER% .'
             }
         }
-
-        stage("Build"){
-            steps{
-                bat 'npm run build'
+        stage('Login to Docker Hub') {
+            steps {
+                withCredentials([string(credentialsId: 'ics3', variable: 'test-dockerhub')]) {
+                   
+                    bat 'docker login -u ishanchamika -p ${test-dockerhub}'
+                }
             }
+        }
+        stage('Push Image') {
+            steps {
+                bat 'docker push ishanchamika/react-app:%BUILD_NUMBER%'
+            }
+        }
+    }
+    post {
+        always {
+            bat 'docker logout'
         }
     }
 }
