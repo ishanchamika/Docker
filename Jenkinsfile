@@ -11,15 +11,14 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {  
-                bat 'docker build -t ishanchamika
-/react-app:%BUILD_NUMBER% .'
+                bat 'docker build -t ishanchamika/react-app:%BUILD_NUMBER% .'
             }
         }
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([string(credentialsId: 'ics3', variable: 'test-dockerhub')]) {
+                withCredentials([string(credentialsId: 'ics', variable: 'react-app-pwd')]) {
                    
-                    bat 'docker login -u ishanchamika -p ${test-dockerhub}'
+                    bat 'docker login -u ishanchamika -p ${react-app-pwd}'
                 }
             }
         }
