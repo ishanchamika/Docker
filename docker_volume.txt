@@ -13,4 +13,4 @@ docker volume inspect my_volume
 
 
 ====================================
-5b60ab7d77ce44fe8d9c323e6bd00c69    - genkins admin pwd
+e158dfe7dba94070a8a6cec1066a8d19    - genkins admin pwd
