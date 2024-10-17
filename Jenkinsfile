@@ -16,9 +16,9 @@ pipeline {
         }
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([string(credentialsId: 'ics', variable: 'react-app-pwd')]) {
+                withCredentials([string(credentialsId: 'ics', variable: 'ics')]) {
                    
-                    bat 'docker login -u ishanchamika -p ${react-app-pwd}'
+                    bat 'docker login -u ishanchamika -p ${ics}'
                 }
             }
         }
