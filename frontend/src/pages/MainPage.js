@@ -65,7 +65,7 @@ export default function MainPage()
     <>
     <ToastContainer />
     <div className='head'>
-        <h3 className='lg:mx-32 text-3xl font-bold text-green-600'>Sri Lanka Tea</h3>
+        <h3 className='lg:mx-32 text-3xl font-bold text-green-600'>Sri Lanka Tea Factory</h3>
         <p className='lg:mx-32 opacity-40 py-6'>Fifty years of trust....</p>
     </div>
     <div className='register'>
